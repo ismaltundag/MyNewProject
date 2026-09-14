@@ -33,11 +33,11 @@ export const Image: React.FC<MediaProps> = (props) => {
   let height: number | undefined | null
   let alt = altFromProps
   let src: StaticImageData | string = srcFromProps || ''
+  let isPayloadMediaPath = false
 
   if (!src && resource && typeof resource === 'object') {
     const {
       alt: altFromResource,
-      filename: fullFilename,
       height: fullHeight,
       url,
       width: fullWidth,
@@ -47,9 +47,8 @@ export const Image: React.FC<MediaProps> = (props) => {
     height = heightFromProps ?? fullHeight
     alt = altFromResource
 
-    const filename = fullFilename
-
-    src = `${process.env.NEXT_PUBLIC_SERVER_URL}${url}`
+    isPayloadMediaPath = typeof url === 'string' && url.startsWith('/')
+    src = url || ''
   }
 
   // NOTE: this is used by the browser to determine which image to download at different screen sizes
@@ -60,7 +59,8 @@ export const Image: React.FC<MediaProps> = (props) => {
         .join(', ')
 
   const isLocalMedia =
-    typeof src === 'string' && /^https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(?::\d+)?\//.test(src)
+    isPayloadMediaPath ||
+    (typeof src === 'string' && /^https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(?::\d+)?\//.test(src))
 
   return (
     <NextImage
