@@ -1,25 +1,33 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import {
-  BoldFeature,
-  EXPERIMENTAL_TableFeature,
-  IndentFeature,
-  ItalicFeature,
-  LinkFeature,
-  OrderedListFeature,
-  UnderlineFeature,
-  UnorderedListFeature,
-  lexicalEditor,
+    BoldFeature,
+    EXPERIMENTAL_TableFeature,
+    IndentFeature,
+    ItalicFeature,
+    LinkFeature,
+    OrderedListFeature,
+    UnderlineFeature,
+    UnorderedListFeature,
+    lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 
 import { Categories } from '@/collections/Categories'
+import { Audiobooks } from '@/collections/Audiobooks'
+import { Events } from '@/collections/Events'
+import { Journal } from '@/collections/Journal'
 import { Media } from '@/collections/Media'
+import { NewsletterSubscribers } from '@/collections/NewsletterSubscribers'
 import { Pages } from '@/collections/Pages'
+import { Reviews } from '@/collections/Reviews'
 import { Users } from '@/collections/Users'
+import { About } from '@/globals/About'
 import { Footer } from '@/globals/Footer'
 import { Header } from '@/globals/Header'
+import { Homepage } from '@/globals/Homepage'
+import { UpcomingRelease } from '@/globals/UpcomingRelease'
 import { plugins } from './plugins'
 
 const filename = fileURLToPath(import.meta.url)
@@ -37,7 +45,7 @@ export default buildConfig({
     },
     user: Users.slug,
   },
-  collections: [Users, Pages, Categories, Media],
+  collections: [Users, Pages, Categories, Events, Journal, Reviews, NewsletterSubscribers, Media, Audiobooks],
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
@@ -80,7 +88,7 @@ export default buildConfig({
   }),
   //email: nodemailerAdapter(),
   endpoints: [],
-  globals: [Header, Footer],
+  globals: [Header, Footer, Homepage, About, UpcomingRelease],
   plugins,
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

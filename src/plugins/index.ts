@@ -42,7 +42,7 @@ export const plugins: Plugin[] = [
         update: isAdmin,
       },
       admin: {
-        group: 'Content',
+        group: 'Readers & Audience',
       },
     },
     formOverrides: {
@@ -53,7 +53,7 @@ export const plugins: Plugin[] = [
         create: isAdmin,
       },
       admin: {
-        group: 'Content',
+        group: 'Readers & Audience',
       },
       fields: ({ defaultFields }) => {
         return defaultFields.map((field) => {
@@ -90,6 +90,10 @@ export const plugins: Plugin[] = [
     orders: {
       ordersCollectionOverride: ({ defaultCollection }) => ({
         ...defaultCollection,
+        admin: {
+          ...defaultCollection?.admin,
+          group: 'Ecommerce',
+        },
         fields: [
           ...defaultCollection.fields,
           {

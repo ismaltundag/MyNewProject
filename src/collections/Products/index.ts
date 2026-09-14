@@ -1,29 +1,29 @@
 import { CallToAction } from '@/blocks/CallToAction/config'
 import { Content } from '@/blocks/Content/config'
 import { MediaBlock } from '@/blocks/MediaBlock/config'
-import { slugField } from 'payload'
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 import { CollectionOverride } from '@payloadcms/plugin-ecommerce/types'
 import {
-  MetaDescriptionField,
-  MetaImageField,
-  MetaTitleField,
-  OverviewField,
-  PreviewField,
+    MetaDescriptionField,
+    MetaImageField,
+    MetaTitleField,
+    OverviewField,
+    PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import {
-  FixedToolbarFeature,
-  HeadingFeature,
-  HorizontalRuleFeature,
-  InlineToolbarFeature,
-  lexicalEditor,
+    FixedToolbarFeature,
+    HeadingFeature,
+    HorizontalRuleFeature,
+    InlineToolbarFeature,
+    lexicalEditor,
 } from '@payloadcms/richtext-lexical'
-import { DefaultDocumentIDType, Where } from 'payload'
+import { DefaultDocumentIDType, slugField, Where } from 'payload'
 
 export const ProductsCollection: CollectionOverride = ({ defaultCollection }) => ({
   ...defaultCollection,
   admin: {
     ...defaultCollection?.admin,
+    group: 'Ecommerce',
     defaultColumns: ['title', 'enableVariants', '_status', 'variants.variants'],
     livePreview: {
       url: ({ data, req }) =>
@@ -164,6 +164,14 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
               },
               hasMany: true,
               relationTo: 'products',
+            },
+            {
+              name: 'amazonUrl',
+              type: 'text',
+              admin: {
+                description: 'Optional Amazon purchase link for this book.',
+              },
+              label: 'Amazon URL',
             },
           ],
           label: 'Product Details',

@@ -2,7 +2,6 @@ import { Grid } from '@/components/Grid'
 import { ProductGridItem } from '@/components/ProductGridItem'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
-import React from 'react'
 
 export const metadata = {
   description: 'Search for products in the store.',
@@ -23,13 +22,6 @@ export default async function ShopPage({ searchParams }: Props) {
     collection: 'products',
     draft: false,
     overrideAccess: false,
-    select: {
-      title: true,
-      slug: true,
-      gallery: true,
-      categories: true,
-      priceInUSD: true,
-    },
     ...(sort ? { sort } : { sort: 'title' }),
     ...(searchValue || category
       ? {
@@ -46,11 +38,6 @@ export default async function ShopPage({ searchParams }: Props) {
                       or: [
                         {
                           title: {
-                            like: searchValue,
-                          },
-                        },
-                        {
-                          description: {
                             like: searchValue,
                           },
                         },

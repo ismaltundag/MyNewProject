@@ -1,64 +1,70 @@
 'use client'
-import { CMSLink } from '@/components/Link'
 import { Cart } from '@/components/Cart'
 import { OpenCartButton } from '@/components/Cart/OpenCart'
+import { CMSLink } from '@/components/Link'
 import Link from 'next/link'
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 
-import { MobileMenu } from './MobileMenu'
 import type { Header } from 'src/payload-types'
+import { MobileMenu } from './MobileMenu'
 
 import { LogoIcon } from '@/components/icons/logo'
-import { usePathname } from 'next/navigation'
 import { cn } from '@/utilities/cn'
+import { usePathname } from 'next/navigation'
 
 type Props = {
   header: Header
 }
 
+const fallbackMenu: NonNullable<Header['navItems']> = [
+  { id: 'about', link: { type: 'custom', label: 'About', url: '/about' } },
+  { id: 'books', link: { type: 'custom', label: 'Books', url: '/books' } },
+  { id: 'audiobooks', link: { type: 'custom', label: 'Audiobooks', url: '/audiobooks' } },
+  { id: 'store', link: { type: 'custom', label: 'Store', url: '/shop' } },
+  { id: 'events', link: { type: 'custom', label: 'Events', url: '/events' } },
+  { id: 'journal', link: { type: 'custom', label: 'Journal', url: '/journal' } },
+  { id: 'join', link: { type: 'custom', label: 'Join the Storm', url: '/#join-the-storm' } },
+]
+
 export function HeaderClient({ header }: Props) {
-  const menu = header.navItems || []
+  const menu = header.navItems?.length ? header.navItems : fallbackMenu
   const pathname = usePathname()
 
   return (
-    <div className="relative z-20 border-b">
-      <nav className="flex items-center md:items-end justify-between container pt-2">
+    <div className="storm-header relative z-20 border-b">
+      <nav className="container relative flex items-center justify-between py-3">
         <div className="block flex-none md:hidden">
           <Suspense fallback={null}>
             <MobileMenu menu={menu} />
           </Suspense>
         </div>
-        <div className="flex w-full items-end justify-between">
-          <div className="flex w-full items-end gap-6 md:w-1/3">
-            <Link className="flex w-full items-center justify-center pt-4 pb-4 md:w-auto" href="/">
-              <LogoIcon className="w-6 h-auto" />
-            </Link>
-            {menu.length ? (
-              <ul className="hidden gap-4 text-sm md:flex md:items-center">
-                {menu.map((item) => (
-                  <li key={item.id}>
-                    <CMSLink
-                      {...item.link}
-                      size={'clear'}
-                      className={cn('relative navLink', {
-                        active:
-                          item.link.url && item.link.url !== '/'
-                            ? pathname.includes(item.link.url)
-                            : false,
-                      })}
-                      appearance="nav"
-                    />
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-          </div>
-
-          <div className="flex justify-end md:w-1/3 gap-4">
-            <Suspense fallback={<OpenCartButton />}>
-              <Cart />
-            </Suspense>
-          </div>
+        <Link className="storm-wordmark" href="/" aria-label="J.E. Storm home">
+          <LogoIcon className="h-auto w-5" />
+          <span>J.E. Storm</span>
+        </Link>
+        {menu.length ? (
+          <ul className="storm-header-nav hidden gap-7 text-sm md:flex md:items-center">
+            {menu.map((item) => (
+              <li key={item.id}>
+                <CMSLink
+                  {...item.link}
+                  size="clear"
+                  className={cn('relative navLink', {
+                    active:
+                      item.link.url && item.link.url !== '/'
+                        ? pathname.includes(item.link.url)
+                        : false,
+                  })}
+                  appearance="nav"
+                />
+              </li>
+            ))}
+          </ul>
+        ) : null}
+        <div className="flex justify-end gap-4">
+          <Suspense fallback={<OpenCartButton />}>
+            <Cart />
+          </Suspense>
         </div>
       </nav>
     </div>

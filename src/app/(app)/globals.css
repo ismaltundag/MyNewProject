@@ -228,3 +228,823 @@ input,
 button {
   @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
 }
+
+/* J.E. Storm editorial home */
+.storm-home {
+  --storm-ink: #1d2924;
+  --storm-paper: #f4f0e8;
+  --storm-sand: #ded4c3;
+  --storm-coral: #d9674d;
+  --storm-moss: #667364;
+  background: var(--storm-paper);
+  color: var(--storm-ink);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.section-shell {
+  max-width: 86rem;
+  margin: 0 auto;
+  padding: 7rem 2rem;
+}
+.storm-kicker,
+.storm-eyebrow,
+.storm-art-note,
+.storm-image-caption,
+.storm-event-date,
+.storm-journal-grid span {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.storm-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(24rem, 44%);
+  min-height: 41rem;
+  background: var(--storm-sand);
+}
+.storm-hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem clamp(2rem, 8vw, 9rem);
+}
+.storm-hero h1 {
+  max-width: 9ch;
+  margin: 1.5rem 0;
+  font-size: clamp(4.5rem, 9vw, 9rem);
+  font-weight: 400;
+  line-height: 0.87;
+  letter-spacing: -0.055em;
+}
+.storm-hero-intro {
+  max-width: 29rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+.storm-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+.storm-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.2rem;
+  padding: 0.8rem 1.35rem;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+.storm-button:hover {
+  transform: translateY(-3px);
+}
+.storm-button-dark {
+  background: var(--storm-ink);
+  color: var(--storm-paper);
+}
+.storm-button-outline {
+  border: 1px solid var(--storm-ink);
+}
+.storm-button-outline:hover {
+  background: var(--storm-ink);
+  color: var(--storm-paper);
+}
+.storm-text-link {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.25rem;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.storm-text-link span {
+  margin-left: 0.4rem;
+}
+.storm-hero-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 32rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 35% 35%, #efd2a8 0 11%, transparent 12%),
+    linear-gradient(145deg, #c77e54, #8b5847 55%, #303b33);
+}
+.storm-sun {
+  position: absolute;
+  top: 13%;
+  right: 16%;
+  width: 11rem;
+  height: 11rem;
+  border-radius: 50%;
+  background: #f0c36e;
+  opacity: 0.85;
+}
+.storm-book {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 1rem 1.3rem 2rem #2225;
+}
+.storm-book strong {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 0.98;
+}
+.storm-book-label,
+.storm-book-author {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.storm-book-hero {
+  width: 15rem;
+  height: 22rem;
+  padding: 1.3rem;
+  transform: rotate(7deg);
+  background: #e9c16e;
+  color: #713c31;
+}
+.storm-book-hero strong {
+  margin-top: auto;
+  font-size: 2.15rem;
+}
+.storm-art-note {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 2rem;
+  color: #fff;
+}
+.storm-section-heading {
+  max-width: 42rem;
+}
+.storm-section-heading h2,
+.storm-release h2,
+.storm-newsletter h2 {
+  margin: 1rem 0 0;
+  font-size: clamp(2.5rem, 5vw, 5.3rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+.storm-feature-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: clamp(3rem, 8vw, 9rem);
+  align-items: center;
+  margin-top: 4rem;
+}
+.storm-feature-image {
+  position: relative;
+}
+.storm-feature-image img {
+  display: block;
+  width: 100%;
+  height: 35rem;
+  object-fit: cover;
+  filter: saturate(0.7);
+}
+.storm-image-caption {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--storm-paper);
+}
+.storm-feature-copy {
+  max-width: 30rem;
+}
+.storm-feature-copy h3 {
+  margin: 1rem 0;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-weight: 400;
+  line-height: 0.98;
+}
+.storm-feature-copy p:not(.storm-eyebrow) {
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+.storm-audiobooks {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 8%, #1ed76045 0, transparent 20rem),
+    linear-gradient(135deg, #191414, #101010);
+  color: #fff;
+}
+.storm-audiobooks::before {
+  position: absolute;
+  right: -4rem;
+  bottom: -7rem;
+  width: 20rem;
+  height: 20rem;
+  border: 2.5rem solid #1ed760;
+  border-radius: 50%;
+  content: '';
+  opacity: 0.15;
+}
+.storm-audiobooks > * {
+  position: relative;
+}
+.storm-audiobooks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.storm-audiobook-card {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem;
+  border: 1px solid #ffffff1f;
+  border-radius: 0.5rem;
+  background: #ffffff0d;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+.storm-audiobook-card:hover {
+  background: #ffffff18;
+  transform: translateY(-0.25rem);
+}
+.storm-audiobook-card img,
+.storm-audiobook-card-cover {
+  width: 7rem;
+  height: 7rem;
+  background: #ded4c3;
+  object-fit: cover;
+}
+.storm-audiobook-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.55rem;
+  font-weight: 400;
+  line-height: 1;
+}
+.storm-audiobook-card p {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.storm-price-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.82rem;
+}
+.storm-muted {
+  color: #687068;
+}
+.storm-reviews {
+  background: var(--storm-ink);
+  color: var(--storm-paper);
+}
+.storm-reviews .section-shell {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 7rem;
+}
+.storm-review-intro h2 {
+  margin-bottom: 2rem;
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1;
+}
+.storm-review-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.storm-review-list blockquote {
+  display: flex;
+  flex-direction: column;
+  min-height: 17rem;
+  margin: 0;
+  padding: 1.5rem;
+  border-top: 1px solid #f4f0e855;
+}
+.storm-quote-mark {
+  color: var(--storm-coral);
+  font-size: 3rem;
+  line-height: 0.5;
+}
+.storm-review-list p {
+  font-size: 1.1rem;
+  line-height: 1.45;
+}
+.storm-review-list cite {
+  margin-top: auto;
+  color: #b7b9af;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.64rem;
+  font-style: normal;
+  text-transform: uppercase;
+}
+.storm-release {
+  display: grid;
+  grid-template-columns: 1fr 15rem;
+  gap: 4rem;
+  align-items: center;
+  background: var(--storm-coral);
+}
+.storm-release-copy {
+  max-width: 38rem;
+}
+.storm-release-copy > p:not(.storm-kicker) {
+  max-width: 31rem;
+  margin: 1.5rem 0 2rem;
+  font-size: 1.12rem;
+  line-height: 1.6;
+}
+.storm-book-release {
+  width: 14rem;
+  height: 21rem;
+  padding: 1.25rem;
+  transform: rotate(-7deg);
+  background: #6b7762;
+  color: #f3e8d2;
+}
+.storm-book-release strong {
+  margin-top: auto;
+}
+.storm-heading-row {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.storm-event-list {
+  margin-top: 3rem;
+  border-top: 1px solid #1d292455;
+}
+.storm-event {
+  display: grid;
+  grid-template-columns: 8rem 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #1d292455;
+}
+.storm-event strong,
+.storm-event small {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+.storm-event small {
+  margin-top: 0.35rem;
+  color: #687068;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.storm-event-arrow {
+  font-size: 1.5rem;
+}
+.storm-journal {
+  padding-top: 0;
+}
+.storm-journal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+.storm-journal-grid article {
+  display: flex;
+  flex-direction: column;
+  min-height: 14rem;
+  padding: 1.5rem;
+  background: #e5ded2;
+}
+.storm-journal-grid h3 {
+  margin: 2rem 0 1.5rem;
+  font-size: 1.55rem;
+  font-weight: 400;
+  line-height: 1.05;
+}
+.storm-journal-grid a {
+  margin-top: auto;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+.storm-newsletter {
+  background: #c3cdb7;
+}
+.storm-newsletter-inner {
+  max-width: 60rem;
+  text-align: center;
+}
+.storm-newsletter h2 {
+  font-size: clamp(3rem, 7vw, 7rem);
+}
+
+.storm-about {
+  background: var(--storm-paper, #f4f0e8);
+  color: var(--storm-ink, #1d2924);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+.storm-about-hero {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  min-height: 32rem;
+  background: #ded4c3;
+}
+.storm-about-copy {
+  align-self: center;
+  max-width: 36rem;
+  padding: 5rem clamp(1.25rem, 8vw, 9rem);
+}
+.storm-about h1 {
+  margin: 1.5rem 0;
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+.storm-about-hero p:not(.storm-kicker) {
+  max-width: 28rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+.storm-about-image {
+  min-height: 32rem;
+}
+.storm-about-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.7);
+}
+.storm-about-story {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 4rem;
+}
+.storm-about-story h2 {
+  max-width: 42rem;
+  margin: 0 0 2rem;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+.storm-about-story p:not(.storm-kicker) {
+  max-width: 35rem;
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+.storm-about-join {
+  padding: 4rem 1.25rem;
+  background: #c3cdb7;
+  text-align: center;
+}
+.storm-about-join h2 {
+  margin: 1rem 0 2rem;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.storm-list-page {
+  min-height: 60vh;
+  background: var(--storm-paper, #f4f0e8);
+  color: var(--storm-ink, #1d2924);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+.storm-list-hero {
+  padding: 6rem 1.25rem 5rem;
+  background: #ded4c3;
+  text-align: center;
+}
+.storm-list-hero h1 {
+  max-width: 12ch;
+  margin: 1rem auto;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+.storm-list-hero > p:not(.storm-kicker) {
+  max-width: 34rem;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.storm-list-content {
+  max-width: 72rem;
+}
+.storm-books-content {
+  max-width: 86rem;
+}
+.storm-books-content h2 {
+  margin-top: 1rem;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+.storm-books-note {
+  max-width: 16rem;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+.storm-books-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+.storm-empty-state {
+  margin-top: 3rem;
+  font-size: 1.1rem;
+}
+.storm-list-content > .storm-kicker {
+  margin-bottom: 2rem;
+}
+
+.storm-audiobook-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.storm-audiobook {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.5rem;
+  border: 1px solid var(--theme-elevation-150);
+  background: var(--theme-elevation-0);
+}
+
+.storm-audiobook-image,
+.storm-audiobook-cover {
+  width: 9rem;
+  height: 9rem;
+  background: var(--theme-elevation-100);
+}
+
+.storm-audiobook h2 {
+  margin: 0 0 0.5rem;
+}
+
+.storm-audiobook p {
+  margin: 0 0 1rem;
+}
+
+@media (max-width: 600px) {
+  .storm-audiobook {
+    grid-template-columns: 1fr;
+  }
+}
+.storm-audiobook-card .storm-text-link {
+  color: #1ed760;
+  border: 0;
+  padding: 0;
+  font-weight: 700;
+}
+.storm-audiobooks .storm-kicker {
+  color: #1ed760;
+}
+.storm-audiobooks .storm-heading-row .storm-text-link {
+  color: #fff;
+}
+.storm-list-page .storm-journal-grid article h2 {
+  margin: 2rem 0 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.05;
+}
+.storm-list-page .storm-review-list {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+.storm-release-page {
+  margin-top: 0;
+}
+.storm-release-page h2 {
+  max-width: 12ch;
+}
+.storm-release-page > div > p:not(.storm-kicker) {
+  max-width: 32rem;
+  line-height: 1.6;
+}
+
+.storm-newsletter-inner > p:not(.storm-kicker) {
+  max-width: 30rem;
+  margin: 1.5rem auto 2rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+.storm-newsletter .section-shell {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+.storm-newsletter h2 {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+}
+.storm-signup {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 32rem;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--storm-ink);
+}
+.storm-signup-message {
+  flex-basis: 100%;
+  margin: 0.75rem 0 0;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.68rem;
+  text-align: left;
+}
+.storm-signup-message.is-error {
+  color: #a33f35;
+}
+.storm-signup input {
+  width: 100%;
+  padding: 1rem 0;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.75rem;
+}
+.storm-signup button {
+  border: 0;
+  background: transparent;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.storm-social-link {
+  display: inline-flex;
+  color: #687068;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+.storm-footer-social {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.75rem;
+}
+.storm-footer-social-label {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+@media (min-width: 40rem) {
+  .storm-footer-social {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.storm-social-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: currentColor;
+}
+.storm-social-link:hover {
+  transform: translateY(-2px);
+}
+.storm-social-instagram {
+  color: #d62976;
+}
+.storm-social-facebook {
+  color: #1877f2;
+}
+.storm-social-twitter {
+  color: #111827;
+}
+.storm-social-tiktok {
+  color: #00a8a8;
+}
+.storm-social-threads {
+  color: #111827;
+}
+.storm-social-youtube {
+  color: #ff0000;
+}
+.storm-social-pinterest {
+  color: #bd081c;
+}
+.storm-social-goodreads {
+  color: #8b6f47;
+}
+.storm-social-bluesky {
+  color: #1683e2;
+}
+
+@media (max-width: 800px) {
+  .section-shell {
+    padding: 4.5rem 1.25rem;
+  }
+  .storm-hero,
+  .storm-feature-grid,
+  .storm-reviews .section-shell,
+  .storm-release,
+  .storm-audiobooks-grid {
+    grid-template-columns: 1fr;
+  }
+  .storm-hero-copy {
+    padding: 5rem 1.25rem 4rem;
+  }
+  .storm-hero h1 {
+    font-size: clamp(4rem, 19vw, 7rem);
+  }
+  .storm-hero-art {
+    min-height: 26rem;
+  }
+  .storm-feature-image img {
+    height: 24rem;
+  }
+  .storm-reviews .section-shell {
+    gap: 3rem;
+  }
+  .storm-review-list,
+  .storm-journal-grid {
+    grid-template-columns: 1fr;
+  }
+  .storm-review-list blockquote {
+    min-height: 0;
+  }
+  .storm-release {
+    gap: 2rem;
+  }
+  .storm-release .storm-book {
+    justify-self: center;
+  }
+  .storm-heading-row {
+    align-items: start;
+    flex-direction: column;
+  }
+  .storm-event {
+    grid-template-columns: 4.5rem 1fr auto;
+  }
+  .storm-event strong {
+    font-size: 1.05rem;
+  }
+  .storm-event-date {
+    font-size: 0.6rem;
+  }
+  .storm-newsletter .section-shell {
+    padding-top: 2.75rem;
+    padding-bottom: 2.75rem;
+  }
+  .storm-newsletter-inner {
+    display: block;
+    text-align: center;
+  }
+  .storm-newsletter-inner > p:not(.storm-kicker) {
+    margin: 1rem auto 1.5rem;
+  }
+  .storm-newsletter h2 {
+    font-size: clamp(2.25rem, 12vw, 3.5rem);
+  }
+  .storm-footer-social {
+    margin-left: 0;
+  }
+  .storm-about-hero,
+  .storm-about-story {
+    grid-template-columns: 1fr;
+  }
+  .storm-about-copy {
+    padding: 4rem 1.25rem;
+  }
+  .storm-about-image {
+    min-height: 24rem;
+  }
+  .storm-about-story {
+    gap: 2rem;
+  }
+  .storm-books-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 2.5rem;
+  }
+}

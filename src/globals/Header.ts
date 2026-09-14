@@ -9,6 +9,9 @@ export const Header: GlobalConfig = {
     read: () => true,
     update: adminOnly,
   },
+  admin: {
+    group: 'Site & Pages',
+  },
   fields: [
     {
       name: 'navItems',
@@ -18,7 +21,7 @@ export const Header: GlobalConfig = {
           appearances: false,
         }),
       ],
-      maxRows: 6,
+      maxRows: 7,
     },
   ],
 }

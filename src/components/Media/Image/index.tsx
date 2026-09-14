@@ -59,6 +59,9 @@ export const Image: React.FC<MediaProps> = (props) => {
         .map(([, value]) => `(max-width: ${value}px) ${value}px`)
         .join(', ')
 
+  const isLocalMedia =
+    typeof src === 'string' && /^https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(?::\d+)?\//.test(src)
+
   return (
     <NextImage
       alt={alt || ''}
@@ -76,6 +79,7 @@ export const Image: React.FC<MediaProps> = (props) => {
       quality={90}
       sizes={sizes}
       src={src}
+      unoptimized={isLocalMedia}
       width={!fill ? width || widthFromProps : undefined}
     />
   )

@@ -1,3 +1,29 @@
+.storm-header {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.storm-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.35rem;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.storm-wordmark svg {
+  color: var(--storm-coral, #d9674d);
+}
+
+.storm-header-nav {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .navLink {
   overflow: hidden;
   border-radius: unset;
@@ -25,5 +51,20 @@
     &::after {
       transform: translateY(-2px);
     }
+  }
+}
+
+@media (max-width: 800px) {
+  .storm-header .container {
+    min-height: 4.25rem;
+  }
+  .storm-wordmark {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.15rem;
+  }
+  .storm-wordmark svg {
+    width: 1rem;
   }
 }

@@ -1,5 +1,12 @@
-import PageTemplate, { generateMetadata } from './[slug]/page'
+import type { Metadata } from 'next'
 
-export default PageTemplate
+import { StormHome } from '@/components/StormHome'
 
-export { generateMetadata }
+export const metadata: Metadata = {
+  title: 'J.E. Storm | Author & storyteller',
+  description: 'Stories with a pulse. Discover the books, events, and journal of J.E. Storm.',
+}
+
+export default function HomePage() {
+  return <StormHome />
+}

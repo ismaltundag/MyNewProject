@@ -1,14 +1,14 @@
 'use client'
 import type { Product, Variant } from '@/payload-types'
 
-import { RichText } from '@/components/RichText'
 import { AddToCart } from '@/components/Cart/AddToCart'
 import { Price } from '@/components/Price'
-import React, { Suspense } from 'react'
+import { RichText } from '@/components/RichText'
+import { Suspense } from 'react'
 
-import { VariantSelector } from './VariantSelector'
-import { useCurrency } from '@payloadcms/plugin-ecommerce/client/react'
 import { StockIndicator } from '@/components/product/StockIndicator'
+import { useCurrency } from '@payloadcms/plugin-ecommerce/client/react'
+import { VariantSelector } from './VariantSelector'
 
 export function ProductDescription({ product }: { product: Product }) {
   const { currency } = useCurrency()
@@ -87,6 +87,19 @@ export function ProductDescription({ product }: { product: Product }) {
           <AddToCart product={product} />
         </Suspense>
       </div>
+      {product.amazonUrl ? (
+        <a
+          className="inline-flex items-center justify-center border border-input px-4 py-2 text-sm font-medium transition-colors hover:bg-accent"
+          href={product.amazonUrl}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Buy on Amazon{' '}
+          <span className="ml-2" aria-hidden="true">
+            ↗
+          </span>
+        </a>
+      ) : null}
     </div>
   )
 }
